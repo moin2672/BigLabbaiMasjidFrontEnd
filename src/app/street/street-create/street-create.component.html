@@ -1,0 +1,31 @@
+<div class="container">
+<div class="mx-auto my-5 col-md-6">
+
+  <div class="d-flex justify-content-center" *ngIf="isLoading">
+    <div class="spinner-border text-primary" role="street">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <form [formGroup]="streetForm" (ngSubmit)="onSubmit()" *ngIf="!isLoading">
+    <div class="form-floating mb-3">
+      <input
+        type="text"
+        class="form-control"
+        formControlName="streetName"
+        placeholder="Street"
+      />
+      <label for="streetName">Street</label>
+    </div>
+
+    <button class="btn btn-primary">{{editMode? 'Update' : 'Add'}} Street</button>
+    <button class="btn btn-danger mx-3" [routerLink]="['/street']">Cancel</button>
+  </form>
+</div>
+<!-- {{ this.streetForm.value | json }} -->
+
+
+</div>
+
+
+

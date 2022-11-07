@@ -1,0 +1,57 @@
+<div class="container" *ngIf="userIsAuthenticated && userId !== ''">
+
+
+
+  <!-- IS LOADING COMPONENT -->
+  <div class="d-flex justify-content-center d-print-none" *ngIf="isLoading">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <div class="row" *ngFor="let data of memberGroupList">
+    <h3 class="text-center text-primary my-3">{{data._id}}</h3>
+    <!-- <hr> -->
+    <div
+      class="mx-auto my-2 table-responsive"
+      *ngIf="data.members.length > 0"
+    >
+      <table class="table table-hover">
+        <thead>
+          <tr class="table-my-primary">
+            <th scope="col">S.No#</th>
+            <th scope="col">Door No.</th>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Father/Guardian Name</th>
+            <th scope="col">Age</th>
+            <!-- <th scope="col">Street Name</th>
+            <th scope="col" class="d-print-none"></th> -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let member of data.members; let i = index">
+            <th scope="row">{{i+1}}</th>
+            <td>{{member.doorNo}}</td>
+            <th scope="row">{{member.mID}}</th>
+            <th scope="row">{{member.initials}} {{member.name}}</th>
+            <td>{{member.fathersName}}</td>
+            <td>{{member.age}}</td>
+            <!-- <td>member.streetName</td>
+            <td class="d-print-none">button</td> -->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- NO MEMBERS -->
+  <br />
+  <br />
+  <br />
+  <br />
+  <p class="text-center" *ngIf="memberGroupList.length <= 0">
+    <strong>No Data Available</strong>
+  </p>
+
+</div>

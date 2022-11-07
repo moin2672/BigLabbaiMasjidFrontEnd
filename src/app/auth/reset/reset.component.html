@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="text-center my-5">
+    <div class="form-signin">
+      <form [formGroup]="form" (submit)="onSubmitResetPassword()">
+        <span class="bg-primary display-6 text-white rounded p-1">
+          <strong>&nbsp;M&nbsp;</strong></span
+        >
+        <h1 class="h3 my-4 mb-3 fw-normal">Admin Reset Password</h1>
+
+        <div class="form-floating">
+          <input
+            type="password"
+            class="form-control"
+            [ngClass]="
+            form.get('oldPassword').touched ? form.get('oldPassword').invalid ? 'is-invalid' : 'is-valid' :''
+            "
+            id="oldPassword"
+            placeholder="Old Password"
+            formControlName="oldPassword"
+            [errorStateMatcher]="confirmErrorMatcher"
+          />
+          <label for="oldPassword">Old Password</label>
+          <small style="color:red" *ngIf="form.get('oldPassword').touched && form.get('oldPassword').invalid"
+            >Please enter a Old Password</small
+          >
+        </div>
+
+        <div class="form-floating">
+        <input
+          type="password"
+          class="form-control"
+          [ngClass]="
+          form.get('password').touched ? form.get('password').invalid ? 'is-invalid' : 'is-valid' :''
+          "
+          id="password"
+          placeholder="New Password"
+          formControlName="password"
+          [errorStateMatcher]="confirmErrorMatcher"
+        />
+        <label for="password">New Password</label>
+        <small style="color:red" *ngIf="form.get('password').touched  && form.get('password').invalid"
+          >{{getErrorMessage('password')}}</small
+        >
+      </div>
+
+      <div class="form-floating">
+      <input
+        type="password"
+        class="form-control"
+        [ngClass]="
+        form.get('confirm').touched ? form.get('confirm').invalid ? 'is-invalid' : 'is-valid' : ''
+        "
+        id="confirm"
+        placeholder="Confirm Password"
+        formControlName="confirm"
+        [errorStateMatcher]="confirmErrorMatcher"
+      />
+      <label for="confirm">Confirm Password</label>
+      <small style="color:red" *ngIf="form.get('confirm').touched  && form.get('confirm').invalid"
+        >{{getErrorMessage('confirm')}}</small
+      >
+    </div>
+
+    <button class="btn btn-primary my-3"  type="submit" [disabled]="!form.valid" >Reset Password</button>
+    <button class="btn btn-danger my-3" style="margin-left:10px;"
+    (click)="onCancel()"
+    type="button">Cancel</button>
+
+      </form>
+    </div>
+  </div>
+</div>

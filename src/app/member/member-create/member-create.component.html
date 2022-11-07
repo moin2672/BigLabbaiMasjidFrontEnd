@@ -1,0 +1,113 @@
+<div class="container">
+
+
+<div class="mx-auto my-5 col-md-6">
+<form [formGroup]="memberForm" (ngSubmit)="onSubmit()">
+  <div class="form-floating mb-3">
+    <input
+      type="text"
+      class="form-control"
+      formControlName="initials"
+      placeholder="Initials"
+    />
+    <label for="initials">Initials</label>
+  </div>
+  
+  <div class="form-floating mb-3">
+  <input
+    type="text"
+    class="form-control"
+    formControlName="name"
+    placeholder="Name"
+    #searchName
+  />
+  <label for="name">Name</label>
+</div>
+<span class="form-text" *ngIf="requestedData">
+Checking : <strong class="text-success"> {{requestedData}} </strong>
+</span>
+<div class="alert alert-info mt-3" role="alert" *ngIf="(memberForm.get('name').dirty || memberForm.get('name').touched) && searchText_Value && searchText_Value!='' && members.length<=0">
+No related data found..
+</div>
+<div class="alert alert-danger mt-3" role="alert" *ngIf="(memberForm.get('name').dirty || memberForm.get('name').touched) && searchText_Value && searchText_Value!='' && members.length>0">
+Related data found..
+<!-- {{members|json}} -->
+<div class="table-responsive">
+<table class="table">
+<thead class="table-dark">
+<tr>
+  <th scope="col">ID</th>
+  <th scope="col">Name</th>
+  <th scope="col">Father Name</th>
+  <th scope="col">Address</th>
+</tr>
+</thead>
+<tbody>
+<tr class="bg-light" *ngFor="let member of members">
+  <th scope="row">{{member.mID}}</th>
+  <td>{{member.name}}</td>
+  <td>{{member.fathersName}}</td>
+  <td>{{member.doorNo}} {{member.streetName}}</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="form-floating mb-3">
+<input
+  type="text"
+  class="form-control"
+  formControlName="fathersName"
+  placeholder="Father / Guardian Name"
+/>
+<label for="fathersName">Father / Guardian Name</label>
+</div>
+
+<div class="form-floating mb-3">
+<input
+  type="number"
+  class="form-control"
+  formControlName="age"
+  placeholder="Age"
+/>
+<label for="age">Age</label>
+</div>
+
+<div class="form-floating mb-3">
+<input
+  type="text"
+  class="form-control"
+  formControlName="doorNo"
+  placeholder="Door No."
+/>
+<label for="doorNo">Door No.</label>
+</div>
+
+<div class="form-floating mb-3">
+<input
+  list="streetNamez"
+  class="form-control"
+  formControlName="streetName"
+  placeholder="Street Name"
+  id="streetName"
+/>
+<datalist id="streetNamez">
+  <option *ngFor="let item of streetName_list" [value]="item.streetName">
+    {{ item.streetName }}
+  </option>
+</datalist>
+<label for="streetNames" class="form-label">Street Name</label>
+</div>
+  <button class="btn btn-primary">{{editMode? 'Update' : 'Add'}} Member</button>
+  <button class="btn btn-danger mx-3" [routerLink]="['/member']">Cancel</button>
+</form>
+</div>
+<!-- <hr> -->
+<!-- <br> -->
+<!-- <app-member-list></app-member-list> 
+<br> -->
+
+
+</div>
+
+<!-- {{ this.memberForm.value | json }} -->

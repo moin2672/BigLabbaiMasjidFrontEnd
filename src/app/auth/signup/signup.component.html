@@ -1,0 +1,68 @@
+<div class="container-fluid">
+<div class="text-center my-5">
+  <div class="d-flex justify-content-center" *ngIf="isLoading">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <div class="form-signin">
+    <form
+      (submit)="onSignup(SignupForm)"
+      #SignupForm="ngForm"
+      *ngIf="!isLoading"
+    >
+      <span class="bg-primary display-6 text-white rounded p-1">
+        <strong>&nbsp;M&nbsp;</strong></span
+      >
+      <h1 class="h3 my-4 mb-3 fw-normal">Admin Sign Up</h1>
+
+      <div class="form-floating">
+        <input
+          type="email"
+          class="form-control"
+          [ngClass]="{'is-valid':(!emailInput.invalid && emailInput.touched), 'is-invalid':(emailInput.invalid && emailInput.touched)}"
+          id="emailInput"
+          name="email"
+          placeholder="name@example.com"
+          ngModel
+          #emailInput="ngModel"
+          required
+          email
+        />
+        <label for="emailInput">Email address</label>
+        <small
+          style="color:red"
+          *ngIf="emailInput.touched && emailInput.invalid"
+          >E-mail ID is required</small
+        >
+      </div>
+      <div class="form-floating">
+        <input
+          type="password"
+          class="form-control"
+          [ngClass]="{'is-valid':(!passwordInput.invalid && passwordInput.touched), 'is-invalid':(passwordInput.invalid && passwordInput.touched)}"
+          id="passwordInput"
+          name="password"
+          placeholder="Password"
+          ngModel
+          #passwordInput="ngModel"
+          required
+        />
+        <label for="passwordInput">Password</label>
+        <small
+          style="color:red"
+          *ngIf="passwordInput.touched && passwordInput.invalid"
+          >Password is required</small
+        >
+      </div>
+
+      <br>
+      <button class="w-100 btn btn-lg btn-primary" type="submit">
+        Sign Up
+      </button>
+    </form>
+    .
+  </div>
+</div>
+</div>

@@ -1,0 +1,83 @@
+<nav class="navbar navbar-dark bg-primary d-print-none" >
+<div class="container-fluid">
+  <a class="navbar-brand mx-auto mb-0 h1" routerLink="/home">Rahamathpala Big Masjid</a>
+</div>
+<div class="container-fluid" *ngIf="userIsAuthenticated">
+  <ul
+    class="
+      nav nav-pills nav-fill
+      p-1
+      small
+      bg-white
+      border
+      rounded-5
+      shadow-sm
+      mx-auto
+      mb-2 mb-lg-0
+    "
+  >
+    <li class="nav-item">
+      <a
+        class="nav-link rounded-5"
+        *ngIf="!userIsAuthenticated"
+        routerLink="/login"
+        routerLinkActive="active"
+        >Login</a
+      >
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link rounded-5"
+        *ngIf="!userIsAuthenticated"
+        routerLink="/signup"
+        routerLinkActive="active"
+        >Signup</a
+      >
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link rounded-5"
+        *ngIf="userIsAuthenticated"
+        routerLink="/home"
+        routerLinkActive="active"
+        >Home</a
+      >
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link rounded-5"
+        *ngIf="userIsAuthenticated"
+        routerLink="/member"
+        routerLinkActive="active"
+        >Members</a
+      >
+    </li>
+    <li class="nav-item">
+    <a
+      class="nav-link rounded-5"
+      *ngIf="userIsAuthenticated"
+      routerLink="/street"
+      routerLinkActive="active"
+      >Streets</a
+    >
+  </li>
+  <li class="nav-item">
+    <a
+      class="nav-link rounded-5"
+      *ngIf="userIsAuthenticated"
+      routerLink="/reset"
+      routerLinkActive="active"
+      >Reset</a
+    >
+  </li>
+    <li class="nav-item">
+      <a
+        class="nav-link rounded-5 pointer"
+        *ngIf="userIsAuthenticated"
+        (click)="onLogout()"
+        >Logout</a
+      >
+    </li>
+  </ul>
+</div>
+</nav>

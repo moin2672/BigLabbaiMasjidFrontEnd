@@ -1,0 +1,134 @@
+<!-- ADD MEMBER BUTTON -->
+<div class="container">
+  <div class="row">
+
+<div class="col-md-6"></div>
+<div class="col-md-6">
+<button class="btn btn-danger btn-lg my-3 float-end  d-print-none" [routerLink]="['/upload']"> 
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cloud-upload-fill" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M8 0a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 4.095 0 5.555 0 7.318 0 9.366 1.708 11 3.781 11H7.5V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11h4.188C14.502 11 16 9.57 16 7.773c0-1.636-1.242-2.969-2.834-3.194C12.923 1.999 10.69 0 8 0zm-.5 14.5V11h1v3.5a.5.5 0 0 1-1 0z"/>
+  </svg> 
+Upload Data</button>
+
+<button class="btn btn-primary btn-lg my-3 float-end mx-3 d-print-none" [routerLink]="['/member/group']"> 
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-printer" viewBox="0 0 16 16">
+  <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
+  <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z"/>
+</svg> 
+Print All</button>
+
+</div>
+</div>
+
+  
+
+</div>
+<div class="container px-4 py-5" id="custom-cards">
+
+
+  <h1 class="text-primary">Dashboard</h1>
+ 
+  <div class="row align-items-stretch g-4 py-5">
+    <div class="col">
+      <div
+        class="
+          card card-cover
+          h-100
+          overflow-hidden
+          text-bg-dark
+          rounded-4
+          shadow-lg
+        "
+(click)="getTotalMembers('')"
+
+        style="background-image: url('https://lh3.googleusercontent.com/fife/AAbDypBp5W_0kAmHx7bC_e6mxAn63cJL5TFM3avfDWmUUKHs2YTK5ax3FAJPFP4NNma2XI0y7QlPVdQmpIu92O7yl1Hul9zVLykdK-_vobUvot4BxjFGxaICgsnqLmo1lee45WAefh0BK5Vgpz7Azm5s9Z_oR4FI6zdas-4p8QVEPmCYylkU6Evpm8G5dPuW9ttpH74jCJob1yo4Et7UpyCqHNNOnpI301Bgpp9yOUDAk9a_Dgwb5FQzNnhk8Cvq1PUdE6JsG2xYKAZGNA5IwWle1gkNFJMURVny5Vtj7m2Yeg2fJTzeNHz9FPcFsNu_O7fBG3JpClOHI1sFsnyV3sNNKwJylYAgwrYLnQD4SgY6IYO8C00F_2bKF5I71VJVDaDeu9MNM7fz8ZO4fGd3Qqojnhs4-KBFCdYBtBFRJmkcujRSJrFuuoUwFrd-YTIemyqczX3x7wfXYfLM4uwDnqDKQNaj32psn1ekS4bgivroowCpyn1gbRP4Dk5HIESI6GF3uhZcIrFVakhKGHA30KwaOc5P4vCdPmGPS39BX-BrStxQIeRqmvo06dfbDlDljqnnDZt93mSzl_8XEQil8cMCF9VY6OPDIiiZmCs4bDgLuaSVx1l3RpKFWL6mRUHr-gpmkK_fKrhPCKksj_12p_MZoFGGuF7C0Ax6P27qJaph7aSxim9d-k738PatjW4EcaKMqEfzMoeouc7yg1tsmOY5NTsB7atSd8T2sccsjYv4gzk99TysjemX_534yCLkX3Z_nKOnIJQd7DjkTVY38aBKXUfHtu6Bn-fI3TgAQ6Ta46nKC_5stIKgQR1JLj6SaNY1fDoEU2IUsUsf1Ia0Onl7AXjPGSJaOJwfH7pgNizvaNxRWguiRmw09OUGIhs6FN75ikqomd9ZmuK5pwwzF4Cmv8q7SGpLpthIyVyfR6CgzMmSdNjSeBCBF-ne5nZjDWYJDw7r6OWN-6g8EwgPhj-p9kYITkHqgXMMNqHSElEvs52R4n6oJ6HrVJmS4wf-DjpAeEOrJhLroon3EzNItMQkfPyJg29NGvm42cfj82JDXAHW6yzxL6XhxGHHf_UG5BdMEFpBOOGOr-yeMBNfgpvjgKasHS-1oR2dWaN1oxmCv2JpgnVvnXlZBbAmW3t7H72srR1t_DihPObtJrxxsq1zqGRVjM_5sECKB-__LpF5YsfcCON7TH8knswgf76a8XDOtD7Z4YkPqfyQgtA7bl7yVDu3xaH2Z61_k-fAdvAm8Aca1umHKi3uQEFVBclUYyyFwsalZh5FpdSnHKlZQUHPUjbTi5tbVlRDrZp1zicE3cSpwQZX8AWpxqpf7c_Klwbgki1Z_QzpNbbAukiZqMCUguB-NaM2cQCbGMfb7w0JKza0qRrOVHXrapfTjS-wEWusFHKbVTCQgxp37KMwTpgsDMLLQRS8gCvfgaPVguUza4N5N1jY7jbIldwZdrY8_kR4fj0b__UVHCjDM1vvPR6HYnAQ-DhQ2oySFBgz-0H3u1WaADCNEoJ586gqE5FfD_USgVAppsqzEoMhyRKn9JFDELpQ5fURKqZCJejlmHkLa1dBIHnDEFPtYtniEu7ta6Kb0Qouddd-AVy-Z4cENjgLQvnr5IgS_yF1pv1wyw=w906-h657');background-size: cover;
+    "
+      >
+        <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+          <div class="row">
+            <div class="col">
+              <h6 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">
+                No. of Members
+              </h6>
+            </div>
+            <div class="col">
+              <h1 class="pt-5 mt-2 mb-4 display-1 lh-1 fw-bold">{{totalMembers}}</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div
+        class="
+          card card-cover
+          h-100
+          overflow-hidden
+          text-bg-dark
+          rounded-4
+          shadow-lg
+        "
+        style="background-image: url('https://lh3.googleusercontent.com/fife/AAbDypCT-486d2M2adYp9TTpL1as7vkxir7k_6gkBNk1YYNp1UynSPPRZSxZbltuyXFOJHztM-LVx2qMKqwHuN_bNqAlzZDODJNcJvyDj7aH2gROOPO8LpyQtjIY9xSQakOvP1zGVZ65f4Aluk6x-qVHa01oBtIalfNzuUDkNSypE00MyXg_kxcuL4WEqBMAzUXhrQFt6f8EJgkLDgpW2Bw4TZdHm2cLSZevVY3u1RVvTQQrnOTQmYAHI8Q9P9l5xzlbGt0WMmvKfH4LSV8juvWN7V0YJHZgm0YpNOtJJYa3atcTfpNg_Zxdm3ZuI8C9df8CuGWrFIO7TdaMUmBKNCu43UJ45Hk8S49s7LlleFZ6o4OfMHfgkdJTteFFZ_QFPB4xM0INaZpTFUJII_ZM99KOsxeBAlvegbf8N13E-Pbgqlv2Un8tcDB_Id3ufEl_UW_iA0HP4x8OHkHE1tUuTDm70SlgwtG4MoNNdyjeGPFseiPyAMZ_koB4Kt-TaXMShJjIhi8T9c5PfyNU1gyYHcNLlJZl0hW7MwH8YQYBIH38MEaEmlhNRvohwpg7nQLCeU7a9SzoUzB2YiP03j6FTZIOENd9KBxt8svUA1YBd_l12TTbt5xMy12btGNpfwjqXhfUYwl7sLtHapHRXCOQIZxKckimG-T-HlzgvvM5YzO1yxRbRotcbaLfZZOPAFASq1EVjqdEu0YYeUNnXNJfZfj6cVimIW8BfPEGK5om2Pqt4gyE9GdCQJ37eH7kIBSPYAQcR-SjRppJzDT1ZJg5RvPdH2Aoo0W4wP75UM5dJtzlhsKEWCoZJuUMsPjiLimGMlVa-zLHS8VcD2iqverjxMoUH82nzfqNlqt3uepg8MgwvheDHdiGL6Ue2CgcU41O6UOsaivAnPckbSkNTjB1xH0B4Td3Vt5Wx8L-NzXFNi9tgl_hb1ERvKwcavwPuVXzfouxQFr0EjuqAzflb9DuR8Sdh2CdqXQdCLbQP9j_fZGEQsir-YGosqLB5TP2IELtv1IiG-a3xe-gyy3fHTdpl7Zs8W3s-Er1qspUyaTvq0ynOATC27swFiNKGA1JegZkda3zpWBDZNrri8bE4-mkOkL5y4QlV3aoV-bZfuBE2NS3-21YGRSckQSRQSinwzPFn25F0GwNGlzWX9d4M0YTBask9d-MP5sUgebq5vG5NQDO_4N8wqIRWdBQicaqtGKWkolnXIr2erxiIuTgovv-6NgfFaC6_qwNTqWas2-urgPTO0jNhpgfFdejLXrhUZeZh9r_KIaIiUSoMyZj3uwGEpPneS0YcI_BIp7g3fxJAHRxdTB8XrZd5HUNcy07POsXzYEg8p0-cBXZQ7F6R4_B5gYiPK-OkXAUQVvB0ZyphvNMYoFplw2LewtlLVLPbjWh24JwsUzmHIXxtrlTRtUTwCZ7cS9DbVz1wwyGaa3bnpzZiMX9gWtgFUgIWv7gdLxWvjEZo8H4_w1xnMVMpYpmeSwg-J4_ydFlbc0iEsoxYTWRD7Qzn2AtIfD87ZMfi_jZjNA16EUmLVbEXyft3u79f2-rQYKEyogyzh6BtYrEu6mRa1jhdH0nDHN2ztiLb8nvnaXD2k9xNpMzGJSGMeLN9sDWNQijLw9FE46n0C6Gdw=w906-h657');background-size: cover;"
+        (click)="getTotalStreets()"
+      >
+        <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+        <div class="row">
+        <div class="col">
+          <h6 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">
+            No. of Streets&nbsp;
+          </h6>
+        </div>
+        <div class="col">
+          <h1 class="pt-5 mt-2 mb-4 display-1 lh-1 fw-bold">{{totalStreets}}</h1>
+        </div>
+      </div>
+          
+        </div>
+      </div>
+    </div>
+    <!--<div class="col">
+     <div
+      class="
+        card card-cover
+        h-100
+        overflow-hidden
+        text-bg-dark
+        rounded-4
+        shadow-lg
+      "
+      style="background-image: url('https://lh3.googleusercontent.com/fife/AAbDypBIRPamvn4V0U2TopFdcderlbsKNa56_OJEqDJp2lLSoB6hgw42zsi6fo7VlyMSkHbrKa02_XUtrv4WuXkpgbKuMw7u2FpWCWGxThwuVW6d1DY8s5miW911qStSIeJhC0J-YexvaXFmowvZJCCCLNGRdGpRsjwybT-sOvHWqc4xMCJ_0eLwYndKALznQU_YkZXgOyAqels-FcyWoaU1uDfdLP6HXO852IpE17EWgn8DY4QawJxmc6LxS9EL9pEbnK1sE6ivDXwsLJSwq2YYXL5bd4OT55TbkXID6G_XrjcLbJWHERLnOntFBMlUHte2-Wb1RH5kUnpabxZ5WkaKoC43N_FPKTsDz7SMtgEWvGsyHujApbepMKTwHIx6GMPukLkPpqBcfUShWM2OjhPkiBYi5gw__eFu9zmhEWgNaYnQwBgqGyBQh_rCDqZJ_XWoqFGEpHtuujJiciaeiXEhiaOh37_7x750KVUo8LldjW-K6OlV5ygQ8AUAjDYGwUpaa3s63vQSWxAUiIBFdG-XG0WXDk-I7LXH3QbKiFTbjbXWb6PSSm_HF0um1PiBAhc_PW5aQueQI7rKUjxGGxKFnOVZfLC6ARlSd0qJ1ITWPdfmss7i5MtE9lv38Ai4J9qbxWW_uP8PKQgVeSzkwnIQro0UIG3x06TBN5PIdQSghoLV1LIugAZgRgms_YfKbvzWM0cs8fwhn9M2vw9wji1MaDdTEzC7MStqla_-MKYgP5N7F-5B2LsxYThc4iyN89-PhNcVCIiPu_PLmFhFgI1O_xg8Ww8SmDczqHvcP8Wk-Avm6HRlMd9oYkfPyC8-zvCTqScC8MBOsfwT26aqrwnKr8StCeWn8YqVuQ8n7mM6T_zSHW8ejXU3SEUpe1k86bFG7T5ZalLNPmOMPRQLnwiMzUQoRWGPbPcn21ZgmUZZFEpB_P89cKfk6lsEXSsXWiDAY4AKxMo3l9DzZIiVMNaJsPDeEZu5nt75PkXyQAMUVg9fKeP38z9CRSopQUtiPCfKPqfNk3mD_2Bm8OowX5WRwwv04XRUKCdmbKthnYvYtRMp3ugxk8we5cg7tN3jvPh8ZyW1TVbu7AObgQEDc96F3fJhPSdzrZ4VlEkgx3-CGwhT8jNlrSae3-pIwGqE4VsIagR7Ct8QSJD58Ofna6Si95YMT-nt4jXF2h3QySDTt6NOS-qPPLduJS0C2WXK_NmEKTUk-j6LBGKbEbvBGtrPCfN-CKwDhsdSzH1BZTZOWPMIG27RzzQ7C6rHJEurzjWZkUbPgSk51YMXKixvtVEU4CR6ySn1_ShhoFkUmfMvkwP5HJho5x0PQVxV2A6u-C0P23yk0zvLZFEadOXLJLidlBdhLdOqlJhhpVZ5jfSvX1oBLAipTrbWXvWq1a0_t7FpQdP88yMWf-WnKSVry5nuETvtRdEosoWeE9zhRR8XGv2NHIMfEjnAPHJjGSOudUVR0xrlkF3bKixlHnt6vlPDgiIdExRziStkyXJAO4aRQAcLxg8vghMBuVEB5QZZjRkiY91SzWnVE44l38Jtv2VS4dIHWBxZaAoPvFsKPukNSX4WMfafo1q_0hxSt4HlBkOp9nAi_4QsSQeQ6Z7C2o2dg8BWHQ4ijCmobjcELA=w1478-h941');background-size: cover;"
+      (click)="getTotalStreets()"
+    >
+      <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+      <div class="row">
+      <div class="col">
+        <h6 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">
+          No. of Streets&nbsp;
+        </h6>
+      </div>
+      <div class="col">
+        <h1 class="pt-5 mt-2 mb-4 display-1 lh-1 fw-bold">{{totalStreets}}</h1>
+      </div>
+    </div>
+        
+      </div>
+    </div>
+  </div> -->
+  </div>
+
+  <hr><br>
+  <h3 class="text-primary">No. of Members/Street</h3>
+
+  <div class="row d-flex align-items-stretch g-4 py-5" >
+  <div class="col-md-3 d-flex align-items-stretch" *ngFor="let data of membersGroupByStreet">
+    <div class="card text-white" 
+    style="background-image: url('https://lh3.googleusercontent.com/fife/AAbDypAk7g-4l16EMbUvPgdu7UcP1PE286ElxMZYzFfSe89C8lGZwUIlQp-c5d22NaXRYcfD5XHwC8fToXGutS7caPhf3DoELH_GL0J2lYFjCLRt4eYezwQxi06ntyTBvEWLT7EcrbZ4rsEK_qUcn5x7BwaBB13B96cyDqHop34-lbbNSObAY8PcPtZRvz6g7qiU9lA7zhrvTESNXZSkHhHk4OfeC5JRxBc7Y8lrVbJXfY7fCY9_Yld0YKxpwmoLvsateagPVd6T__BkOz_oV1rc2BbSozJQBI1Sbc_c4zpCctAvGsjGw7utfvRg0mXyUOJ3Ibs0xXp4AKbHRs9XfXi_ro6Xp4LG5I1YR_Lvllj-o4SQ_MGYoDUNAteNebp0pobw3EAKOu6C5SD6wSbK5cM2JYyWYQovPJ0-iewQHPOJLfvJVFTf5dP8PCf5_rN_wKyzrpewbKlJX8lJzFPAMVGiQEaxe1FFsnrMEJmSgmuw4FjXItre46SXUpM5Xf-V24UfMhYEMs0ImuTzdHc2be6ZP9MB-QdMXwbDzfwHgNAeQW6Ea9i8haEdSf-SFIznZmMNmNzrF-iWiPjKnFRJCTSf2-vLXgHKrL-neMOBBnpPkpWDVptKu_6fO4YwiGpQN8cUOhShPGgbRtQZ339IwMZRV4scF79IAxGHi1640VkFdnLxGzPogrK7AjOybOpAmp670YyOdwYrFBKY77zdYn3pq1cq97XYWpvKE8NCOp8pF1LvV4YdmUZ9T-RFbrQlP54zw2V8RDQa8YMf30dXoIQS0f1WarZcuDQNFNw2dfxIFYT3C_DnPVQExA6b8-U8cMVR2ClH0CQAO06JLFR4PZeVxSkVEaCZcYdoiJQ6F54VzPRGegngPROIqU6VIdS8bYgkfld_B2nablkybS9Yoe6HgYv87GbM194mpodopI2ZkD1C_ZRFZMz5ha8hwJ-LqKfLS9wrULcNzXniP3sxs4IfftvlMFpEgmTp6tDqa8nbP8ZKrsbEHJIXxKaQm89OjYDAkehlj04s4dK63hYAiwklftWl_31EtktLHgVBJXvD_TezupuU8ENeOCPnEvfwXvt9NsCayy73GhlMRihK_-bsA5FgPyImnI9OzWCCI42OZVWIbh6sETKPAkHz4i8u7pJWnfKAEV0Cx3DlyH2KS24alKKqJdLyVyPiiMUVo1CcRkZ_LGs8A5RbR4OmNaxDkN0MWm6NE8N8gQpG8HHQy6pjVunWY40PIVYr09Jqf6n0iw_94r10CoBxJeFmLHWj4R1ewSCT1Nngv61fz2EhzLe5q9-x0N7_3me_VlTCaiAUHfBRR1OKcKAMUc1YIUnm8tcAwnJw4MGE6k3Oh6iK4HT4or-SVHtfxODIvD6Pz7P8MvPxx66Im9e2NkSbSHuiFAilSgayyalPalUywgioPgjhV0SLk57xqjkAsfmkLl-MQEs74JU1K_i3omdm0cxdB14BTjVqAjwjCzUSTsJizTJ3JaNoTZjnrSRh8cefzRonO185-2_g64ZQPuq7B9IP0RZLLMQth7nyS8OJcKOZgJtZeFItVJdSgo-LiC78KMgJ598iRaFNcwvAmWQW7PjX0eGxH2k9_QGuElpiKVmX0xCPxmZcOOpm3kEE_HeusQ=w906-h657');background-size: cover;"
+    (click)="getTotalMembers(data._id)">
+      <div class="card-body">
+        <h5 class="card-text">{{data._id}}</h5>
+        <h1 class="card-title float-end">{{data.count}}</h1>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,178 @@
+<div class="container">
+  <!-- ADD MEMBER BUTTON -->
+
+  <button
+    class="btn btn-primary btn-lg my-3 float-end d-print-none"
+    [routerLink]="['/member/new']"
+  >
+    + Member
+  </button>
+
+  <!-- IS LOADING COMPONENT -->
+  <div class="d-flex justify-content-center d-print-none" *ngIf="isLoading">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <!-- SEARCH BAR -->
+  <div class="input-group mb-3 d-print-none">
+    <span class="input-group-text search-my-primary text-white">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        class="bi bi-search"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+        /></svg>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>
+    <div class="form-floating">
+      <input
+        type="text"
+        class="form-control"
+        id="searchInput"
+        placeholder="Search...."
+        #searchInput
+      />
+      <label for="searchInput">Search....</label>
+    </div>
+  </div>
+  <span class="form-text d-print-none" *ngIf="requestedData">
+    Checking : <strong class="text-success"> {{ requestedData }} </strong>
+  </span>
+
+  <!-- NO OF MEMBERS -->
+  <p class="text-muted d-print-none" style="float:right">
+    No. of Members Enrolled: {{ totalPosts }}
+  </p>
+  <br />
+
+  <!-- MEMBERS TABLE -->
+  <div class="mx-auto my-5 table-responsive" *ngIf="members.length > 0">
+    <table class="table table-hover">
+      <thead>
+        <tr class="table-my-primary">
+          <th scope="col">S.No#</th>
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Father/Guardian Name</th>
+          <th scope="col">Age</th>
+          <th scope="col">Door No.</th>
+          <th scope="col">Street Name</th>
+          <th scope="col" class="d-print-none"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let member of members; let i = index">
+          <th scope="row">{{ i + 1 }}</th>
+          <th scope="row">{{ member.mID }}</th>
+          <th scope="row">{{ member.initials }} {{ member.name }}</th>
+          <td>{{ member.fathersName }}</td>
+          <td>{{ member.age }}</td>
+          <td>{{ member.doorNo }}</td>
+          <td>{{ member.streetName }}</td>
+          <td class="d-print-none">
+            <div
+              class="btn-group"
+              *ngIf="userIsAuthenticated && userId == member.creator"
+            >
+              <button
+                type="button"
+                class="btn btn-sm btn-outline-warning"
+                [routerLink]="['/member', 'edit', member._id]"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-pencil-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"
+                  />
+                </svg>
+              </button>
+              <button
+                type="button"
+                class="btn btn-sm btn-outline-danger"
+                (click)="OnDelete(member._id)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-trash3-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"
+                  />
+                </svg>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br />
+    <!-- PAGINATION BUTTON SECTION -->
+    <div
+      class="d-print-none float-end"
+      *ngIf="members.length > 0 && !isLoading"
+    >
+      <ul class="pagination">
+        <li
+          class="page-item pointer"
+          [ngClass]="{ active: backward, disabled: !backward }"
+        >
+          <a class="page-link" (click)="onDecrement()">&laquo;</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link">{{ currentPage }} of {{ totalPages }}</a>
+        </li>
+        <li
+          class="page-item pointer"
+          [ngClass]="{ active: forward, disabled: !forward }"
+        >
+          <a class="page-link" (click)="onIncrement()">&raquo;</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- NO MEMBERS -->
+  <br />
+  <br />
+  <br />
+  <br />
+  <p class="text-center" *ngIf="members.length <= 0">
+    <strong>No Member Added</strong>
+  </p>
+
+  <div class="d-print text-center mb-5" *ngIf="clicked">
+    <button class="btn btn-primary d-print-none" (click)="export()">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        class="bi bi-cloud-download-fill"
+        viewBox="0 0 16 16"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M8 0a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 4.095 0 5.555 0 7.318 0 9.366 1.708 11 3.781 11H7.5V5.5a.5.5 0 0 1 1 0V11h4.188C14.502 11 16 9.57 16 7.773c0-1.636-1.242-2.969-2.834-3.194C12.923 1.999 10.69 0 8 0zm-.354 15.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 14.293V11h-1v3.293l-2.146-2.147a.5.5 0 0 0-.708.708l3 3z"
+        />
+      </svg>
+      Download Members Data
+    </button>
+  </div>
+</div>
